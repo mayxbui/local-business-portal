@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from 'react';
-import './slider.css';
+import '../slider/slider.css';
+import img1 from "../../assets/slider/27.jpg";
+import img2 from "../../assets/slider/28.jpg";
+import img3 from "../../assets/slider/29.jpg";
+import img4 from "../../assets/slider/deal 1.png";
+import img5 from "../../assets/slider/deal 5.png";
+import img6 from "../../assets/slider/deal 6.png";
+import img7 from "../../assets/slider/deal 7.png";
+import img8 from "../../assets/slider/deal 8.png";
 
-const images = [
-  require('../../assets/slider/27.jpg'),
-  require('../../assets/slider/28.jpg'),
-  require('../../assets/slider/29.jpg'),
-  require('../../assets/slider/deal 1.png'),
-  require('../../assets/slider/deal 5.png'),
-  require('../../assets/slider/deal 6.png'),
-  require('../../assets/slider/deal 7.png'),
-  require('../../assets/slider/deal 8.png'),
-];
+const images = [img1, img2, img3, img4, img5, img6, img7, img8];
+
 
 const SliderImg = () => {
   const [index, setIndex] = useState(0);

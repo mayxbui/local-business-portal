@@ -11,18 +11,20 @@ import UploadData from './components/upload-data.jsx';
 
 import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
-import { useUser } from './components/contexts/user-context.jsx';
+import { useUser,UserProvider } from './components/contexts/user-context.jsx';
 
 function AppWrapper() {
   return (
-    <Router>
-      <AppContent />
-    </Router>
+    <UserProvider>
+      <Router>
+        <AppContent />
+      </Router>
+    </UserProvider>
   );
 }
 
 function AppContent() {
-  const { userDetails, loading } = useUser();
+  const { UserDetails, loading } = useUser(); // now it works
   const location = useLocation();
   const hideNavBarOn = ['/login', '/register'];
 
@@ -30,10 +32,10 @@ function AppContent() {
 
   return (
     <div className="App">
-      {userDetails && !hideNavBarOn.includes(location.pathname) && <NavBar />}
+      {UserDetails && !hideNavBarOn.includes(location.pathname) && <NavBar />}
 
       <Routes>
-        <Route path="/" element={userDetails ? <Navigate to="/home" /> : <LogIn />} />
+        <Route path="/" element={UserDetails ? <Navigate to="/home" /> : <LogIn />} />
         <Route path="/login" element={<LogIn />} />
         <Route path="/register" element={<Register />} />
         <Route path="/home" element={<Home />} />
