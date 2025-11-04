@@ -1,50 +1,51 @@
-import React, { useState, useEffect } from "react";
-import Preloader from "../src/components/Pre";
-import Navbar from "./components/Navbar";
-import Home from "./components/Home/Home";
-import About from "./components/About/About";
-import Projects from "./components/Projects/Projects";
-import Footer from "./components/Footer";
-import Resume from "./components/Resume/ResumeNew";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Navigate
-} from "react-router-dom";
-import ScrollToTop from "./components/ScrollToTop";
-import "./style.css";
-import "./App.css";
-import "bootstrap/dist/css/bootstrap.min.css";
+import './App.css';
+import React from 'react';
+import LogIn from './components/log-in/log-in.jsx';
+import Locals from './components/locals/locals.jsx';
+import Home from './components/home/home.jsx';
+import NavBar from './components/nav-bar/nav-bar.jsx';
+import Register from './components/register.jsx';
+import Scan from './components/scan/scan.jsx';
+import Deals from './components/deals/deals.jsx';
+import UploadData from './components/upload-data.jsx';
 
-function App() {
-  const [load, upadateLoad] = useState(true);
+import { BrowserRouter as Router, Routes, Route, Navigate, useLocation } from 'react-router-dom';
+import { ToastContainer } from 'react-toastify';
+import { useUser } from './components/contexts/user-context.jsx';
 
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      upadateLoad(false);
-    }, 1200);
-
-    return () => clearTimeout(timer);
-  }, []);
-
+function AppWrapper() {
   return (
     <Router>
-      <Preloader load={load} />
-      <div className="App" id={load ? "no-scroll" : "scroll"}>
-        <Navbar />
-        <ScrollToTop />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/project" element={<Projects />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/resume" element={<Resume />} />
-          <Route path="*" element={<Navigate to="/"/>} />
-        </Routes>
-        <Footer />
-      </div>
+      <AppContent />
     </Router>
   );
 }
 
-export default App;
+function AppContent() {
+  const { userDetails, loading } = useUser();
+  const location = useLocation();
+  const hideNavBarOn = ['/login', '/register'];
+
+  if (loading) return <p>Loading...</p>;
+
+  return (
+    <div className="App">
+      {userDetails && !hideNavBarOn.includes(location.pathname) && <NavBar />}
+
+      <Routes>
+        <Route path="/" element={userDetails ? <Navigate to="/home" /> : <LogIn />} />
+        <Route path="/login" element={<LogIn />} />
+        <Route path="/register" element={<Register />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/locals" element={<Locals />} />
+        <Route path="/scan" element={<Scan />} />
+        <Route path="/deals" element={<Deals />} />
+        {/* <Route path="/upload" element={<UploadData />} /> */}
+      </Routes>
+
+      <ToastContainer />
+    </div>
+  );
+}
+
+export default AppWrapper;

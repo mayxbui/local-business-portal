@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { db } from '../firebase';
+import { db } from '../firebase.jsx';
 import { collection, getDocs, doc, updateDoc, getDoc } from 'firebase/firestore';
-import { useUser } from '../contexts/user-context.js';
+import { useUser } from '../contexts/user-context.jsx';
 import { useLocation } from 'react-router-dom';
-import DealsCard from './deal-cards.js';
+import DealsCard from './deal-cards.jsx';
 import Barcode from 'react-barcode';
 import { FaUserCircle } from "react-icons/fa";
 import { toast } from 'react-toastify';

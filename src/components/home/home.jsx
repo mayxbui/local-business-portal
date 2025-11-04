@@ -1,7 +1,7 @@
-import SliderImg from '../slider/slider';
-import { useUser } from '../contexts/user-context.js';
-import LocalsSlider from "./local-slider.js";
-import DealsSlider from "./deal-slider.js";
+import SliderImg from '../slider/slider.jsx';
+import { useUser } from '../contexts/user-context.jsx';
+import LocalsSlider from "./local-slider.jsx";
+import DealsSlider from "./deal-slider.jsx";
 
 function Home() {
   const { userDetails, loading } = useUser();

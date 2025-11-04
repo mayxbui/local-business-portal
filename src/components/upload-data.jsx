@@ -1,8 +1,8 @@
 import React, { useEffect } from 'react';
-import { db } from '../firebase';
+import { db } from '../components/firebase.jsx';
 import { collection, addDoc } from 'firebase/firestore';
-import LocalsData from '../locals/localsData';
-import DealsData from '../deals/DealsData';
+import LocalsData from '../components/locals/local-data.jsx';
+import DealsData from '../components/deals/deals-data.jsx';
 
 const UploadLocals = () => {
   useEffect(() => {

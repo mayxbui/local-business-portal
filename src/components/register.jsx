@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import '../log-in/log-in.css';
-import {auth, db} from "../firebase";
+import '../components/log-in/log-in.css';
+import {auth, db} from "../components/firebase.jsx";
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import { createUserWithEmailAndPassword } from 'firebase/auth'
 import {setDoc, doc} from "firebase/firestore";
