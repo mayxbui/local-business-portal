@@ -3,7 +3,7 @@ import { useState } from 'react';
 import './log-in.css';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
-import {auth} from "../firebase";
+import {auth} from "../firebase.jsx";
 import {toast} from "react-toastify";
 
 const LogIn = () => {

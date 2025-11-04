@@ -3,7 +3,7 @@ import "./nav-bar.css";
 import { FaUser } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 import { useUser } from "../contexts/user-context"; // Import the custom context hook
-import { auth } from "../firebase";
+import { auth } from "../firebase.jsx";
 
 
 const NavBar = () => {
