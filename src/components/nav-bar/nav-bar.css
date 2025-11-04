@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #fff;
+  padding: 5px 40px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.1);
+  font-family: 'Poppins', sans-serif;
+  position: sticky;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+}
+
+/* Smaller Logo & Shifted Slightly Left */
+.logo {
+  font-size: 28px;
+  font-weight: 700;
+  color: #ff4409;
+  font-style: italic;
+  margin-right: auto;
+  margin-left: -10px;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  gap: 30px;
+  margin-left: auto;
+}
+
+.nav-item {
+  cursor: pointer;
+  font-size: 16px;
+  color: #ff4409;
+  font-weight: 600;
+  transition: color 0.3s ease-in-out;
+}
+
+.nav-item:hover,
+.nav-item.active {
+  color: #d13400;
+}
+
+/* User Icon */
+.user-icon {
+  font-size: 22px;
+  color: #ff4409;
+  margin-top: 4px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+/* Responsive Design */
+.menu-toggle {
+  display: none;
+  background: none;
+  font-size: 24px;
+  border: none;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    top: 65px;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    padding: 20px 0;
+  }
+
+  .nav-links.open {
+    display: flex;
+  }
+
+  .nav-item {
+    padding: 10px 0;
+    font-size: 18px;
+  }
+
+  .menu-toggle {
+    display: block;
+    margin-left: 10px;
+  }
+}
+
+
+.user-wrapper {
+  position: relative;
+}
+
+.user-icon {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ff4409;
+}
+
+.user-tab {
+  position: absolute;
+  top: 40px;
+  right: -30px;
+  width: 220px;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 14px;
+  z-index: 100;
+}
+
+.user-info {
+  margin-bottom: 10px;
+}
+
+.user-tab .greeting {
+  font-size: 15px;
+  margin: 0;
+}
+
+.user-tab .email {
+  font-size: 13px;
+  color: #333;
+}
+
+.user-tab .points {
+  font-size: 13px;
+  color: #333;
+}
+
+.user-tab hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid #ccc;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 8px;
+  font-size: 14px;
+  background-color: #ff4500;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background-color: #e03e00;
+}
